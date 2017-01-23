@@ -44,6 +44,7 @@
 #define MODAL_GROUP_M4 11  // [M0,M1,M2,M30] Stopping
 #define MODAL_GROUP_M7 12 // [M3,M4,M5] Spindle turning
 #define MODAL_GROUP_M8 13 // [M7,M8,M9] Coolant control
+#define MODAL_GROUP_M14 14 // [M14, M15] Air pump control
 
 // #define OTHER_INPUT_F 14
 // #define OTHER_INPUT_S 15
@@ -122,6 +123,10 @@
 #define COOLANT_FLOOD_ENABLE  PL_COND_FLAG_COOLANT_FLOOD // M8 (NOTE: Uses planner condition bit flag)
 #define COOLANT_MIST_ENABLE   PL_COND_FLAG_COOLANT_MIST  // M7 (NOTE: Uses planner condition bit flag)
 
+// ADDED: Modal Group M14: Air pump control
+#define AIR_PUMP_DISABLE 0 // M14 (Default: Must be zero)
+#define AIR_PUMP_ENABLE 1 // M15 (Do not alter value)
+
 // Modal Group G8: Tool length offset
 #define TOOL_LENGTH_OFFSET_CANCEL 0 // G49 (Default: Must be zero)
 #define TOOL_LENGTH_OFFSET_ENABLE_DYNAMIC 1 // G43.1
@@ -187,6 +192,7 @@ typedef struct {
   uint8_t program_flow;    // {M0,M1,M2,M30}
   uint8_t coolant;         // {M7,M8,M9}
   uint8_t spindle;         // {M3,M4,M5}
+  uint8_t air_pump;		   // {M14,M15}
 } gc_modal_t;
 
 typedef struct {

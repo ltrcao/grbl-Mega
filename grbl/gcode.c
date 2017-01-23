@@ -266,6 +266,10 @@ uint8_t gc_execute_line(char *line)
               case 9: gc_block.modal.coolant = COOLANT_DISABLE; break;
             }
             break;
+		  case 14: case 15: //ADDED
+		    word_bit = MODAL_GROUP_M14;
+			gc_block.modal.air_pump = 15 - int_value;
+			break;
           default: FAIL(STATUS_GCODE_UNSUPPORTED_COMMAND); // [Unsupported M command]
         }
 
@@ -929,7 +933,13 @@ uint8_t gc_execute_line(char *line)
     else { gc_state.modal.coolant |= gc_block.modal.coolant; }
   }
   pl_data->condition |= gc_state.modal.coolant; // Set condition flag for planner use.
-
+  
+  // ADDED: [8.5 Air pump control (simply b/c I do not want to put this far from Spindle  and coolant control) ]:
+  
+ if (gc_state.modal.air_pump != gc_block.modal.air_pump){
+	 air_pump_sync(gc_block.modal.air_pump);
+ }
+ 
   // [9. Enable/disable feed rate or spindle overrides ]: NOT SUPPORTED. Always enabled.
 
   // [10. Dwell ]:

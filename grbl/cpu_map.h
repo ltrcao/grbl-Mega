@@ -84,6 +84,11 @@
   #define COOLANT_MIST_DDR    DDRH
   #define COOLANT_MIST_PORT   PORTH
   #define COOLANT_MIST_BIT    6 // MEGA2560 Digital Pin 9
+  
+  // ADDED: Define air pump enable output pins.
+  #define AIR_PUMP_ENABLE_DDR	DDR
+  #define AIR_PUMP_ENABLE_PORT	PORT
+  #define AIR_PUMP_ENABLE_BIT	
 
   // Define user-control CONTROLs (cycle start, reset, feed hold) input pins.
   // NOTE: All CONTROLs pins must be on the same port and not on a port with other input pins (limits).
