@@ -268,7 +268,7 @@ uint8_t gc_execute_line(char *line)
             break;
 		  case 14: case 15: //ADDED
 		    word_bit = MODAL_GROUP_M14;
-			gc_block.modal.air_pump = 15 - int_value;
+			gc_block.modal.air_pump = int_value - 14;
 			break;
           default: FAIL(STATUS_GCODE_UNSUPPORTED_COMMAND); // [Unsupported M command]
         }
