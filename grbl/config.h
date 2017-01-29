@@ -203,6 +203,9 @@
 // #define INVERT_COOLANT_FLOOD_PIN // Default disabled. Uncomment to enable.
 // #define INVERT_COOLANT_MIST_PIN // Default disabled. Note: Enable M7 mist coolant in config.h
 
+// Inverts the selected air pump pin from low-disabled/high-enabled to low-enabled/high-disabled.
+// #define INVERT_AIR_PUMP_ENABLE_PIN // Default disabled. Uncomment to enable.
+
 // When Grbl powers-cycles or is hard reset with the Arduino reset button, Grbl boots up with no ALARM
 // by default. This is to make it as simple as possible for new users to start using Grbl. When homing
 // is enabled and a user has installed limit switches, Grbl will boot up in an ALARM state to indicate

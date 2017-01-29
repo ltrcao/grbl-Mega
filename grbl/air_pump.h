@@ -1,8 +1,8 @@
 /*
-  coolant_control.h - spindle control methods
-  Part of Grbl
+  air_pump.h - vacuum/air pump control methods
+  Grbl add-on
 
-  Copyright (c) 2012-2016 Sungeun K. Jeon for Gnea Research LLC
+  Copyright (c) 2017 Paul Dao and Leon Cao
 
   Grbl is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -20,6 +20,8 @@
 
 #ifndef air_pump_control_h
 #define air_pump_control_h
+
+#include "grbl.h"
 
 #define AIR_PUMP_NO_SYNC     false
 #define AIR_PUMP_FORCE_SYNC  true
