@@ -79,6 +79,7 @@ int main(void)
     gc_init(); // Set g-code parser to default state
     spindle_init();
     coolant_init();
+	air_pump_init();
     limits_init();
     probe_init();
     sleep_init();
