@@ -51,7 +51,6 @@
 #include "gcode.h"
 #include "limits.h"
 #include "motion_control.h"
-#include "planner.h"
 #include "print.h"
 #include "probe.h"
 #include "protocol.h"
@@ -61,6 +60,7 @@
 #include "stepper.h"
 #include "jog.h"
 #include "sleep.h"
+#include "air_pump.h"
 
 // ---------------------------------------------------------------------------------------
 // COMPILE-TIME ERROR CHECKING OF DEFINE VALUES:
