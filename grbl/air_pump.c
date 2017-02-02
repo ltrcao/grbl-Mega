@@ -62,12 +62,14 @@ void air_pump_set_state(uint8_t state)
 	{
 		air_pump_stop();
 	}
-	
-	#ifdef INVERT_AIR_PUMP_ENABLE_PIN
-		AIR_PUMP_ENABLE_PORT &= ~(1 << AIR_PUMP_ENABLE_BIT);
-	#else
-		AIR_PUMP_ENABLE_PORT |= (1 << AIR_PUMP_ENABLE_BIT);
-	#endif
+	else
+	{
+		#ifdef INVERT_AIR_PUMP_ENABLE_PIN
+			AIR_PUMP_ENABLE_PORT &= ~(1 << AIR_PUMP_ENABLE_BIT);
+		#else
+			AIR_PUMP_ENABLE_PORT |= (1 << AIR_PUMP_ENABLE_BIT);
+		#endif
+	}
 }
 
 void air_pump_sync(uint8_t state)
