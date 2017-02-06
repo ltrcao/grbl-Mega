@@ -29,7 +29,6 @@
 #define TRACK_BALL_STATE_DISABLE   0  // Must be zero
 #define TRACK_BALL_STATE_ENABLE    1
 
-
 // Initializes air pump control pins.
 void track_ball_init();
 

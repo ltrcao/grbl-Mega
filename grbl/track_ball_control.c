@@ -35,7 +35,7 @@ void track_ball_init()
 
 uint8_t track_ball_get_state()
 {
-	#ifdef INVERT_AIR_PUMP_ENABLE_PIN
+	#ifdef INVERT_TRACK_BALL_ENABLE_PIN
 		if (bit_isfalse(TRACK_BALL_ENABLE_PORT, (1 << TRACK_BALL_ENABLE_BIT))){
 	#else
 		if (bit_istrue(TRACK_BALL_ENABLE_PORT, (1 << TRACK_BALL_ENABLE_BIT))){
@@ -47,7 +47,7 @@ uint8_t track_ball_get_state()
 
 void track_ball_stop()
 {
-	#ifdef INVERT_AIR_PUMP_ENABLE_PIN
+	#ifdef INVERT_TRACK_BALL_ENABLE_PIN
 		TRACK_BALL_ENABLE_PORT |= (1 << TRACK_BALL_ENABLE_BIT);
 	#else
 		TRACK_BALL_ENABLE_PORT &= ~(1 << TRACK_BALL_ENABLE_BIT);
@@ -64,7 +64,7 @@ void track_ball_set_state(uint8_t state)
 	}
 	else
 	{
-		#ifdef INVERT_AIR_PUMP_ENABLE_PIN
+		#ifdef INVERT_TRACK_BALL_ENABLE_PIN
 			TRACK_BALL_ENABLE_PORT &= ~(1 << TRACK_BALL_ENABLE_BIT);
 		#else
 			TRACK_BALL_ENABLE_PORT |= (1 << TRACK_BALL_ENABLE_BIT);
