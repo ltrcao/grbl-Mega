@@ -96,7 +96,6 @@ int main(void)
 
     // Start Grbl main loop. Processes program inputs and executes them.
     protocol_main_loop();
-
   }
   return 0;   /* Never reached */
 }
