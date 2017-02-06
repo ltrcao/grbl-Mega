@@ -61,6 +61,7 @@
 #include "jog.h"
 #include "sleep.h"
 #include "air_pump.h"
+#include "track_ball_control.h"
 
 // ---------------------------------------------------------------------------------------
 // COMPILE-TIME ERROR CHECKING OF DEFINE VALUES:
