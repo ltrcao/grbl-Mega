@@ -270,6 +270,10 @@ uint8_t gc_execute_line(char *line)
 		    word_bit = MODAL_GROUP_M14;
 			gc_block.modal.air_pump = int_value - 14;
 			break;
+		  case 16: case 17: // ADDED
+		    word_bit = MODAL_GROUP_M16;
+			gc_block.modal.track_ball = int_value - 16;
+			break;
           default: FAIL(STATUS_GCODE_UNSUPPORTED_COMMAND); // [Unsupported M command]
         }
 
@@ -938,6 +942,14 @@ uint8_t gc_execute_line(char *line)
   
  if (gc_state.modal.air_pump != gc_block.modal.air_pump){
 	 air_pump_sync(gc_block.modal.air_pump);
+	 gc_state.modal.air_pump = gc_block.modal.air_pump;
+ }
+ 
+ // ADDED: [8.8 Track ball control]
+ 
+ if (gc_state.modal.track_ball != gc_block.modal.track_ball){
+	 track_ball_sync(gc_block.modal.track_ball);
+	 gc_state.modal.track_ball = gc_block.modal.track_ball;
  }
  
   // [9. Enable/disable feed rate or spindle overrides ]: NOT SUPPORTED. Always enabled.
