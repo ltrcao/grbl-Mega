@@ -89,6 +89,16 @@
   #define AIR_PUMP_ENABLE_DDR	DDRF
   #define AIR_PUMP_ENABLE_PORT	PORTF
   #define AIR_PUMP_ENABLE_BIT	0 // MEGA2560 Analog Pin 0
+  
+    // ADDED: Define air pump enable output pins.
+    #define AIR_PUMP_ENABLE_DDR		DDRF
+    #define AIR_PUMP_ENABLE_PORT	PORTF
+    #define AIR_PUMP_ENABLE_BIT		0 // MEGA2560 Analog Pin 0
+	
+	// ADDED: Define air pump enable output pins.
+	#define TRACK_BALL_ENABLE_DDR	DDRF
+	#define TRACK_BALL_ENABLE_PORT	PORTF
+	#define TRACK_BALL_ENABLE_BIT	1 // MEGA2560 Analog Pin 0
 
   // Define user-control CONTROLs (cycle start, reset, feed hold) input pins.
   // NOTE: All CONTROLs pins must be on the same port and not on a port with other input pins (limits).
