@@ -266,14 +266,14 @@ uint8_t gc_execute_line(char *line)
               case 9: gc_block.modal.coolant = COOLANT_DISABLE; break;
             }
             break;
-		  case 14: case 15: //ADDED
-		    word_bit = MODAL_GROUP_M14;
-			gc_block.modal.air_pump = int_value - 14;
-			break;
-		  case 16: case 17: // ADDED
-		    word_bit = MODAL_GROUP_M16;
-			gc_block.modal.track_ball = int_value - 16;
-			break;
+          case 14: case 15:
+            word_bit = MODAL_GROUP_M14;
+            gc_block.modal.air_pump = int_value - 14;
+            break;
+          case 16: case 17: case 18:
+            word_bit = MODAL_GROUP_M16;
+            gc_block.modal.imprint_servo = int_value - 16;
+            break;
           default: FAIL(STATUS_GCODE_UNSUPPORTED_COMMAND); // [Unsupported M command]
         }
 
@@ -307,9 +307,9 @@ uint8_t gc_execute_line(char *line)
           case 'R': word_bit = WORD_R; gc_block.values.r = value; break;
           case 'S': word_bit = WORD_S; gc_block.values.s = value; break;
           case 'T': word_bit = WORD_T; 
-					  if (value > MAX_TOOL_NUMBER) { FAIL(STATUS_GCODE_MAX_VALUE_EXCEEDED); }
+            if (value > MAX_TOOL_NUMBER) { FAIL(STATUS_GCODE_MAX_VALUE_EXCEEDED); }
             gc_block.values.t = int_value;
-						break;
+            break;
           case 'X': word_bit = WORD_X; gc_block.values.xyz[X_AXIS] = value; axis_words |= (1<<X_AXIS); break;
           case 'Y': word_bit = WORD_Y; gc_block.values.xyz[Y_AXIS] = value; axis_words |= (1<<Y_AXIS); break;
           case 'Z': word_bit = WORD_Z; gc_block.values.xyz[Z_AXIS] = value; axis_words |= (1<<Z_AXIS); break;
@@ -941,15 +941,15 @@ uint8_t gc_execute_line(char *line)
   // ADDED: [8.5 Air pump control (simply b/c I do not want to put this far from Spindle  and coolant control) ]:
   
  if (gc_state.modal.air_pump != gc_block.modal.air_pump){
-	 air_pump_sync(gc_block.modal.air_pump);
-	 gc_state.modal.air_pump = gc_block.modal.air_pump;
+    air_pump_sync(gc_block.modal.air_pump);
+    gc_state.modal.air_pump = gc_block.modal.air_pump;
  }
  
- // ADDED: [8.8 Track ball control]
+ // ADDED: [8.8 Imprint servo control]
  
- if (gc_state.modal.track_ball != gc_block.modal.track_ball){
-	 track_ball_sync(gc_block.modal.track_ball);
-	 gc_state.modal.track_ball = gc_block.modal.track_ball;
+ if (gc_state.modal.imprint_servo != gc_block.modal.imprint_servo){
+    imprint_servo_sync(gc_block.modal.imprint_servo);
+    gc_state.modal.imprint_servo = gc_block.modal.imprint_servo;
  }
  
   // [9. Enable/disable feed rate or spindle overrides ]: NOT SUPPORTED. Always enabled.

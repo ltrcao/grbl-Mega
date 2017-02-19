@@ -24,7 +24,7 @@
 
 // Grbl versioning system
 #define GRBL_VERSION "1.1e-granular-display"
-#define GRBL_VERSION_BUILD "20170227"
+#define GRBL_VERSION_BUILD "20170219"
 
 // Define standard libraries used by Grbl.
 #include <avr/io.h>
@@ -62,7 +62,7 @@
 #include "jog.h"
 #include "sleep.h"
 #include "air_pump.h"
-#include "track_ball_control.h"
+#include "imprint_servo.h"
 
 // ---------------------------------------------------------------------------------------
 // COMPILE-TIME ERROR CHECKING OF DEFINE VALUES:

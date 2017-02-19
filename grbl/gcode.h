@@ -45,7 +45,7 @@
 #define MODAL_GROUP_M7 12 // [M3,M4,M5] Spindle turning
 #define MODAL_GROUP_M8 13 // [M7,M8,M9] Coolant control
 #define MODAL_GROUP_M14 14 // [M14, M15] Air pump control
-#define MODAL_GROUP_M16 16 // [M16, M17] Track ball control
+#define MODAL_GROUP_M16 16 // [M16, M17, M18] Imprint servo control
 
 // #define OTHER_INPUT_F 14
 // #define OTHER_INPUT_S 15
@@ -128,9 +128,10 @@
 #define AIR_PUMP_DISABLE 0 // M14 (Default: Must be zero)
 #define AIR_PUMP_ENABLE 1 // M15 (Do not alter value)
 
-// ADDED: Modal Group M16: Track ball control
-#define TRACK_BALL_DISABLE 0 // M16 (Default: Must be zero)
-#define TRACK_BALL_ENABLE 1 // M17 (Do not alter value)
+// ADDED: Modal Group M16: Imprint servo control
+#define IMPRINT_SERVO_DISABLE 0 // M16 (Default: Must be zero)
+#define IMPRINT_SERVO_MINIMUM 1 // M17 (Do not alter value)
+#define IMPRINT_SERVO_ACTUATE 2 // M18 (Do not alter value)
 
 // Modal Group G8: Tool length offset
 #define TOOL_LENGTH_OFFSET_CANCEL 0 // G49 (Default: Must be zero)
@@ -197,8 +198,8 @@ typedef struct {
   uint8_t program_flow;    // {M0,M1,M2,M30}
   uint8_t coolant;         // {M7,M8,M9}
   uint8_t spindle;         // {M3,M4,M5}
-  uint8_t air_pump;		   // {M14,M15}
-  uint8_t track_ball;	   // {M16,M17}
+  uint8_t air_pump;        // {M14,M15}
+  uint8_t imprint_servo;   // {M16,M17,M18}
 } gc_modal_t;
 
 typedef struct {

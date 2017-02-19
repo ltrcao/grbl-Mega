@@ -80,7 +80,7 @@ int main(void)
     spindle_init();
     coolant_init();
 	air_pump_init();
-	track_ball_init();
+	imprint_servo_init();
     limits_init();
     probe_init();
     sleep_init();

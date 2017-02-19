@@ -85,20 +85,25 @@
   #define COOLANT_MIST_PORT   PORTH
   #define COOLANT_MIST_BIT    6 // MEGA2560 Digital Pin 9
   
-  // ADDED: Define air pump enable output pins.
-  #define AIR_PUMP_ENABLE_DDR	DDRF
-  #define AIR_PUMP_ENABLE_PORT	PORTF
-  #define AIR_PUMP_ENABLE_BIT	0 // MEGA2560 Analog Pin 0
+  // Define air pump enable output pins.
+  #define AIR_PUMP_ENABLE_DDR   DDRF
+  #define AIR_PUMP_ENABLE_PORT  PORTF
+  #define AIR_PUMP_ENABLE_BIT   0 // MEGA2560 Analog Pin 0
   
-    // ADDED: Define air pump enable output pins.
-    #define AIR_PUMP_ENABLE_DDR		DDRF
-    #define AIR_PUMP_ENABLE_PORT	PORTF
-    #define AIR_PUMP_ENABLE_BIT		0 // MEGA2560 Analog Pin 0
-	
-	// ADDED: Define air pump enable output pins.
-	#define TRACK_BALL_ENABLE_DDR	DDRF
-	#define TRACK_BALL_ENABLE_PORT	PORTF
-	#define TRACK_BALL_ENABLE_BIT	1 // MEGA2560 Analog Pin 0
+  // Define imprint servo output pins.
+  #define IMPRINT_SERVO_DDR     DDRL
+  #define IMPRINT_SERVO_PORT    PORTL
+  #define IMPRINT_SERVO_BIT     3 // MEGA2560 Digital Pin 46
+  // PWM-specific configurations. Modify these also if changing above bits.
+  #define IMPRINT_SERVO_TCCRA_REGISTER      TCCR5A
+  #define IMPRINT_SERVO_TCCRB_REGISTER      TCCR5B
+  #define IMPRINT_SERVO_TCCRA_INIT_MASK     ((1 << COM5A1)|(1 << WGM51)) // Non-inverting fast PWM with TOP defined
+  #define IMPRINT_SERVO_TCCRB_INIT_MASK     ((1 << WGM53)|(1 << WGM52)|(1 << CS51)) // by ICR5 and prescaling factor 8
+  #define IMPRINT_SERVO_ICR_REGISTER        ICR5
+  #define IMPRINT_SERVO_OCR_REGISTER        OCR5A
+  #define IMPRINT_SERVO_OCR_DISABLE         0
+  #define IMPRINT_SERVO_OCR_MINIMUM         2000
+  #define IMPRINT_SERVO_OCR_ACTUATE         3000
 
   // Define user-control CONTROLs (cycle start, reset, feed hold) input pins.
   // NOTE: All CONTROLs pins must be on the same port and not on a port with other input pins (limits).
@@ -129,10 +134,10 @@
   #endif
   #define SPINDLE_PWM_OFF_VALUE     0
   #define SPINDLE_PWM_RANGE         (SPINDLE_PWM_MAX_VALUE-SPINDLE_PWM_MIN_VALUE)
-  #define SPINDLE_TCCRA_REGISTER		TCCR4A
-  #define SPINDLE_TCCRB_REGISTER		TCCR4B
-  #define SPINDLE_OCR_REGISTER	  	OCR4B
-  #define SPINDLE_COMB_BIT			    COM4B1
+  #define SPINDLE_TCCRA_REGISTER    TCCR4A
+  #define SPINDLE_TCCRB_REGISTER    TCCR4B
+  #define SPINDLE_OCR_REGISTER      OCR4B
+  #define SPINDLE_COMB_BIT          COM4B1
 
   // 1/8 Prescaler, 16-bit Fast PWM mode
   #define SPINDLE_TCCRA_INIT_MASK ((1<<WGM40) | (1<<WGM41))
@@ -141,9 +146,9 @@
   #define SPINDLE_OCRA_TOP_VALUE  0x0400 // PWM counter reset value. Should be the same as PWM_MAX_VALUE in hex.
 
   // Define spindle output pins.
-  #define SPINDLE_PWM_DDR		DDRH
+  #define SPINDLE_PWM_DDR   DDRH
   #define SPINDLE_PWM_PORT  PORTH
-  #define SPINDLE_PWM_BIT		4 // MEGA2560 Digital Pin 7
+  #define SPINDLE_PWM_BIT   4 // MEGA2560 Digital Pin 7
 
 #endif
 
