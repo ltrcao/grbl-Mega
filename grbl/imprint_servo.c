@@ -26,15 +26,13 @@ void imprint_servo_init()
     IMPRINT_SERVO_TCCRB_REGISTER |= IMPRINT_SERVO_TCCRB_INIT_MASK;
     IMPRINT_SERVO_ICR_REGISTER = -1; // Set TOP to MAX (0xFFFF)
     IMPRINT_SERVO_DDR |= (1 << IMPRINT_SERVO_BIT);
-    imprint_servo_stop();
+    imprint_servo_disable();
 }
 
 uint8_t imprint_servo_get_state() 
 {
     if (IMPRINT_SERVO_OCR_REGISTER == IMPRINT_SERVO_OCR_DISABLE)
         return IMPRINT_SERVO_STATE_DISABLE;
-    else if (IMPRINT_SERVO_OCR_REGISTER == IMPRINT_SERVO_OCR_MINIMUM)
-        return IMPRINT_SERVO_STATE_MINIMUM;
     else if (IMPRINT_SERVO_OCR_REGISTER == IMPRINT_SERVO_OCR_ACTUATE)
         return IMPRINT_SERVO_STATE_ACTUATE;
 }
@@ -44,11 +42,6 @@ void imprint_servo_disable()
     IMPRINT_SERVO_OCR_REGISTER = IMPRINT_SERVO_OCR_DISABLE;
 }
 
-void imprint_servo_stop() 
-{
-    IMPRINT_SERVO_OCR_REGISTER = IMPRINT_SERVO_OCR_MINIMUM;
-}
-
 void imprint_servo_set_state(uint8_t state)
 {
     if (sys.abort) { return; } // Block during abort
@@ -56,10 +49,6 @@ void imprint_servo_set_state(uint8_t state)
     if (state == IMPRINT_SERVO_STATE_DISABLE)
     {
         imprint_servo_disable();
-    }
-    else if (state == IMPRINT_SERVO_STATE_MINIMUM)
-    {
-        imprint_servo_stop();
     }
     else 
     {

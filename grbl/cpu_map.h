@@ -101,9 +101,8 @@
   #define IMPRINT_SERVO_TCCRB_INIT_MASK     ((1 << WGM53)|(1 << WGM52)|(1 << CS51)) // by ICR5 and prescaling factor 8
   #define IMPRINT_SERVO_ICR_REGISTER        ICR5
   #define IMPRINT_SERVO_OCR_REGISTER        OCR5A
-  #define IMPRINT_SERVO_OCR_DISABLE         0
-  #define IMPRINT_SERVO_OCR_MINIMUM         3000 // Neutral point
-  #define IMPRINT_SERVO_OCR_ACTUATE         3200 // TODO: Find out the necessary angle for actuation
+  #define IMPRINT_SERVO_OCR_DISABLE         3000 // Neutral point
+  #define IMPRINT_SERVO_OCR_ACTUATE         3600 // TODO: Find out the necessary angle for actuation
 
   // Define user-control CONTROLs (cycle start, reset, feed hold) input pins.
   // NOTE: All CONTROLs pins must be on the same port and not on a port with other input pins (limits).

@@ -27,8 +27,7 @@
 #define IMPRINT_SERVO_FORCE_SYNC    true
 
 #define IMPRINT_SERVO_STATE_DISABLE     0 // Send no pulse to servo motor
-#define IMPRINT_SERVO_STATE_MINIMUM     1 // Send servo motor to 0 degrees
-#define IMPRINT_SERVO_STATE_ACTUATE     2 // Send servo motor to actuating degrees
+#define IMPRINT_SERVO_STATE_ACTUATE     1 // Send servo motor to actuating degrees
 
 
 // Initializes timer/counter registers and servo output pins.
@@ -39,9 +38,6 @@ uint8_t imprint_servo_get_state();
 
 // Immediately disable imprint servo.
 void imprint_servo_disable();
-
-// Immediately stop imprint servo.
-void imprint_servo_stop();
 
 // Sets the imprint servo output according to state specified.
 void imprint_servo_set_state(uint8_t mode);

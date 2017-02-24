@@ -45,7 +45,7 @@
 #define MODAL_GROUP_M7 12 // [M3,M4,M5] Spindle turning
 #define MODAL_GROUP_M8 13 // [M7,M8,M9] Coolant control
 #define MODAL_GROUP_M14 14 // [M14, M15] Air pump control
-#define MODAL_GROUP_M16 16 // [M16, M17, M18] Imprint servo control
+#define MODAL_GROUP_M16 16 // [M16, M17] Imprint servo control
 
 // #define OTHER_INPUT_F 14
 // #define OTHER_INPUT_S 15
@@ -130,8 +130,7 @@
 
 // ADDED: Modal Group M16: Imprint servo control
 #define IMPRINT_SERVO_DISABLE 0 // M16 (Default: Must be zero)
-#define IMPRINT_SERVO_MINIMUM 1 // M17 (Do not alter value)
-#define IMPRINT_SERVO_ACTUATE 2 // M18 (Do not alter value)
+#define IMPRINT_SERVO_ACTUATE 1 // M17 (Do not alter value)
 
 // Modal Group G8: Tool length offset
 #define TOOL_LENGTH_OFFSET_CANCEL 0 // G49 (Default: Must be zero)

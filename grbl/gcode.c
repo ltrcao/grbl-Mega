@@ -270,7 +270,7 @@ uint8_t gc_execute_line(char *line)
             word_bit = MODAL_GROUP_M14;
             gc_block.modal.air_pump = int_value - 14;
             break;
-          case 16: case 17: case 18:
+          case 16: case 17:
             word_bit = MODAL_GROUP_M16;
             gc_block.modal.imprint_servo = int_value - 16;
             break;
